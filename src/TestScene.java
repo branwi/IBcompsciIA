@@ -41,19 +41,19 @@ public class TestScene extends JPanel {
         double height = screenSize.getHeight();
         buttonHome.setBounds((int) width *5 / 12, (int) height / 9, (int) width / 6,  (int) height / 9);
         buttonHome.addActionListener(listen);
-        buttonHome.setFont(new Font("Arial", Font.PLAIN, (int) width/75));
+        buttonHome.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
 
         buttonEasy.setBounds((int) width *2 / 12, (int) height * 5 / 9, (int) width / 6,  (int) height / 3);
         buttonEasy.addActionListener(listen);
-        buttonEasy.setFont(new Font("Arial", Font.PLAIN, (int) width/75));
+        buttonEasy.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
 
         buttonMedium.setBounds((int) width *5 / 12, (int) height * 5 / 9, (int) width / 6,  (int) height / 3);
         buttonMedium.addActionListener(listen);
-        buttonMedium.setFont(new Font("Arial", Font.PLAIN, (int) width/75));
+        buttonMedium.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
 
         buttonHard.setBounds((int) width *8 / 12, (int) height * 5 / 9, (int) width / 6,  (int) height / 3);
         buttonHard.addActionListener(listen);
-        buttonHard.setFont(new Font("Arial", Font.PLAIN, (int) width/75));
+        buttonHard.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
         add(buttonHome);
         add(buttonEasy);
         add(buttonMedium);

@@ -41,11 +41,11 @@ public class HomeScene extends JPanel {
         double height = screenSize.getHeight();
         buttonTest.setBounds((int) width *5 / 12, (int) height * 5 / 9, (int) width / 6,  (int) height / 9);
         buttonTest.addActionListener(listen);
-        buttonTest.setFont(new Font("Arial", Font.PLAIN, 40));
+        buttonTest.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
 
         buttonPractice.setBounds((int) width *5 / 12, (int) height * 7 / 9, (int) width / 6,  (int) height / 9);
         buttonPractice.addActionListener(listen);
-        buttonPractice.setFont(new Font("Arial", Font.PLAIN, 40));
+        buttonPractice.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
 
         add(buttonTest);
         add(buttonPractice);

@@ -6,7 +6,7 @@ public class IAframe extends JFrame {
     private int state = 0;
     HomeScene homepage = new HomeScene(this);
     TestScene testScene = new TestScene(this);
-    PracticeScene practiceScene = new PracticeScene();
+    PracticeScene practiceScene = new PracticeScene(this);
     public IAframe(){
         setSize(screenSize);
         add(homepage);
