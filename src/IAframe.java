@@ -4,8 +4,8 @@ import java.awt.*;
 public class IAframe extends JFrame {
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private int state = 0;
-    Homepage homepage = new Homepage();
-    TestScene testScene = new TestScene();
+    HomeScene homepage = new HomeScene(this);
+    TestScene testScene = new TestScene(this);
     PracticeScene practiceScene = new PracticeScene();
     public IAframe(){
         setSize(screenSize);
@@ -20,6 +20,16 @@ public class IAframe extends JFrame {
     public void changePractice(){
         remove(homepage);
         add(practiceScene);
+        revalidate();
+        repaint();
+    }
+    public void changeTestEasy(){
+
+    }
+    public void changeHome(){
+        remove(testScene);
+        remove(practiceScene);
+        add(homepage);
         revalidate();
         repaint();
     }
