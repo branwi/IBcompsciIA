@@ -23,7 +23,10 @@ public class IAframe extends JFrame {
         revalidate();
         repaint();
     }
-    public void changeTestEasy(){
+    public void changeProblem(){
+
+    }
+    public void changeAnswer(){
 
     }
     public void changeHome(){

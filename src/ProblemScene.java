@@ -3,9 +3,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TestScene extends JPanel {
+public class ProblemScene extends JPanel{
     IAframe frame;
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    private String question;
+    private double answer;
+    private JTextField answerField;
+
+    private JButton buttonHome = new JButton("Home");
+    private JLabel problemLabel;
+
     class myListener implements ActionListener {
 
         @Override
@@ -31,37 +38,32 @@ public class TestScene extends JPanel {
             }
         }
     }
-    private JButton buttonHome = new JButton("Home");
-    private JButton buttonEasy = new JButton("10 Questions");
-    private JButton buttonMedium = new JButton("20 Questions");
-    private JButton buttonHard = new JButton("30 Questions");
-
     myListener listen = new myListener();
-    public TestScene(IAframe frame){
+    public ProblemScene(IAframe frame, String question, double answer){
         this.frame = frame;
+        this.question = question;
+        this.answer = answer;
         setLayout(null);
-        drawTestScene();
+        drawProblemScene();
         setSize(screenSize);
     }
-    public void drawTestScene(){
+
+    public void drawProblemScene(){
+
         removeAll();
         double width = screenSize.getWidth();
         double height = screenSize.getHeight();
+
+        problemLabel = new JLabel(question, SwingConstants.CENTER);
+        problemLabel.setFont(new Font("Arial", Font.PLAIN, (int) width/6));
+
         buttonHome.setBounds((int) width *5 / 12, (int) height / 9, (int) width / 6,  (int) height / 9);
         buttonHome.addActionListener(listen);
         buttonHome.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
 
-        buttonEasy.setBounds((int) width *2 / 12, (int) height * 5 / 9, (int) width / 6,  (int) height / 3);
-        buttonEasy.addActionListener(listen);
-        buttonEasy.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
+        answerField = new JTextField();
+        answerField.setSize();
 
-        buttonMedium.setBounds((int) width *5 / 12, (int) height * 5 / 9, (int) width / 6,  (int) height / 3);
-        buttonMedium.addActionListener(listen);
-        buttonMedium.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
-
-        buttonHard.setBounds((int) width *8 / 12, (int) height * 5 / 9, (int) width / 6,  (int) height / 3);
-        buttonHard.addActionListener(listen);
-        buttonHard.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
         add(buttonHome);
         add(buttonEasy);
         add(buttonMedium);

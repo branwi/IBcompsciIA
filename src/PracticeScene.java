@@ -61,14 +61,14 @@ public class PracticeScene extends JPanel {
             double width = screenSize.getWidth();
             double height = screenSize.getHeight();
             if(i < 5){
-                buttonTopics.get(i).setBounds((int) width * (1 + 4 * i) /21, (int) height *3/9, (int) width / 7, (int) height / 9);
+                buttonTopics.get(i).setBounds((int) width * (1 + 4 * i) /21, (int) height *5/9, (int) width / 7, (int) height / 9);
                 buttonTopics.get(i).addActionListener(listen);
                 buttonTopics.get(i).setFont(new Font("Arial", Font.PLAIN, (int) width/65));
 
                 add(buttonTopics.get(i));
             }
             else{
-                buttonTopics.get(i).setBounds((int) width * (1 + 4 * (i-5)) /21, (int) height *6/9, (int) width / 7, (int) height / 9);
+                buttonTopics.get(i).setBounds((int) width * (1 + 4 * (i-5)) /21, (int) height *7/9, (int) width / 7, (int) height / 9);
                 buttonTopics.get(i).addActionListener(listen);
                 buttonTopics.get(i).setFont(new Font("Arial", Font.PLAIN, (int) width/65));
 
