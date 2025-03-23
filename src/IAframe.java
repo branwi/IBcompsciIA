@@ -14,12 +14,14 @@ public class IAframe extends JFrame {
     }
     public void changeTest(){
         remove(homepage);
+        remove(practiceScene);
         add(testScene);
         revalidate();
         repaint();
     }
     public void changePractice(){
         remove(homepage);
+        remove(testScene);
         add(practiceScene);
         revalidate();
         repaint();
@@ -55,7 +57,8 @@ public class IAframe extends JFrame {
         if(topic == 10){
             problemScene = new ProblemScene(this, "Limits and Continuity", 1.0);
         }
-        remove(homepage);
+        remove(practiceScene);
+        remove(testScene);
         add(problemScene);
         revalidate();
         repaint();
