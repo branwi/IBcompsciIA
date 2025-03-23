@@ -19,8 +19,44 @@ public class PracticeScene extends JPanel {
                     frame.changeHome();
                     repaint();
                 }
-                if(buttonText.equals("Practice")){
-                    frame.changePractice();
+                if(buttonText.equals("<html>System of<br>Equations</html>")){
+                    frame.changeProblem(1);
+                    repaint();
+                }
+                if(buttonText.equals("Logarithms")){
+                    frame.changeProblem(2);
+                    repaint();
+                }
+                if(buttonText.equals("Polynomials")){
+                    frame.changeProblem(3);
+                    repaint();
+                }
+                if(buttonText.equals("Equations")){
+                    frame.changeProblem(4);
+                    repaint();
+                }
+                if(buttonText.equals("Trigonometry")){
+                    frame.changeProblem(5);
+                    repaint();
+                }
+                if(buttonText.equals("<html>Complex<br>Numbers</html>")){
+                    frame.changeProblem(6);
+                    repaint();
+                }
+                if(buttonText.equals("<html>Rational<br>Functions</html>")){
+                    frame.changeProblem(7);
+                    repaint();
+                }
+                if(buttonText.equals("Vectors")){
+                    frame.changeProblem(8);
+                    repaint();
+                }
+                if(buttonText.equals("<html>Probability and<br>Combinatorics</html>")){
+                    frame.changeProblem(9);
+                    repaint();
+                }
+                if(buttonText.equals("<html>Limits and<br>Continuity</html>")){
+                    frame.changeProblem(10);
                     repaint();
                 }
             }
@@ -46,16 +82,16 @@ public class PracticeScene extends JPanel {
         add(buttonHome);
     }
     public void setButtons(){
-        buttonTopics.add(new JButton("Topic 1"));
-        buttonTopics.add(new JButton("Topic 2"));
-        buttonTopics.add(new JButton("Topic 3"));
-        buttonTopics.add(new JButton("Topic 4"));
-        buttonTopics.add(new JButton("Topic 5"));
-        buttonTopics.add(new JButton("Topic 6"));
-        buttonTopics.add(new JButton("Topic 7"));
-        buttonTopics.add(new JButton("Topic 8"));
-        buttonTopics.add(new JButton("Topic 9"));
-        buttonTopics.add(new JButton("Topic 10"));
+        buttonTopics.add(new JButton("<html>System of<br>Equations</html>"));
+        buttonTopics.add(new JButton("Logarithms")); // No need for line break
+        buttonTopics.add(new JButton("Polynomials")); // No need for line break
+        buttonTopics.add(new JButton("Equations")); // No need for line break
+        buttonTopics.add(new JButton("Trigonometry")); // No need for line break
+        buttonTopics.add(new JButton("<html>Complex<br>Numbers</html>"));
+        buttonTopics.add(new JButton("<html>Rational<br>Functions</html>"));
+        buttonTopics.add(new JButton("Vectors")); // No need for line break
+        buttonTopics.add(new JButton("<html>Probability and<br>Combinatorics</html>"));
+        buttonTopics.add(new JButton("<html>Limits and<br>Continuity</html>"));
 
         for(int i = 0; i < 10; i++){
             double width = screenSize.getWidth();
