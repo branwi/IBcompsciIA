@@ -6,12 +6,19 @@ public class IAframe extends JFrame {
 <<<<<<< Updated upstream
 =======
     private int state = 0;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     private HomeScene homepage = new HomeScene(this);
     private TestScene testScene = new TestScene(this);
     private PracticeScene practiceScene = new PracticeScene(this);
     private ProblemScene problemScene;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    private ProblemDatabase problemDatabase;
+>>>>>>> Stashed changes
 =======
     private ProblemDatabase problemDatabase;
 >>>>>>> Stashed changes
