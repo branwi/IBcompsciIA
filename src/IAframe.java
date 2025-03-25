@@ -4,11 +4,13 @@ import java.awt.*;
 public class IAframe extends JFrame {
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private int state = 0;
-    HomeScene homepage = new HomeScene(this);
-    TestScene testScene = new TestScene(this);
-    PracticeScene practiceScene = new PracticeScene(this);
-    ProblemScene problemScene;
+    private HomeScene homepage = new HomeScene(this);
+    private TestScene testScene = new TestScene(this);
+    private PracticeScene practiceScene = new PracticeScene(this);
+    private ProblemScene problemScene;
+    private ProblemDatabase problemDatabase;
     public IAframe(){
+        problemDatabase = new ProblemDatabase();
         setSize(screenSize);
         add(homepage);
     }
@@ -27,6 +29,18 @@ public class IAframe extends JFrame {
         repaint();
     }
     public void changeProblem(int topic){
+        MathProblem randomProblem = problemDatabase.getRandomProblem(topic);
+        if (randomProblem != null) {
+            problemScene = new ProblemScene(this, randomProblem.getQuestion(), randomProblem.getAnswer());
+            remove(practiceScene);
+            remove(testScene);
+            add(problemScene);
+            revalidate();
+            repaint();
+        } else {
+            System.out.println("No problems found for topic: " + topic);
+            // You might want to show an error message to the user
+        }
         if(topic == 1){
             problemScene = new ProblemScene(this, "System of Equations", 1.0);
         }
