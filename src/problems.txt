@@ -1,0 +1,4 @@
+topic|question|answer
+1|Solve: 2x + y = 5, 3x - y = 5|2.0
+1|Solve: x + y = 10, 2x - y = 5|5.0
+2|Solve: log₂(8)|3.0
