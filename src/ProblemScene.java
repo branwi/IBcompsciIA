@@ -16,10 +16,9 @@ public class ProblemScene extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == buttonHome) {
-                // Clear current problem scene properly
                 resetProblemScene();
                 frame.getContentPane().removeAll();
-                frame.changeHome();  // Assuming this recreates the home content
+                frame.changeHome();
                 frame.revalidate();
                 frame.repaint();
             }

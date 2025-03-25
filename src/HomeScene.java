@@ -14,12 +14,10 @@ public class HomeScene extends JPanel {
                 String buttonText = e.getActionCommand();
                 if(buttonText.equals("Test")){
                     frame.changeTest();
-                    System.out.println("Changed to Test!");
                     repaint();
                 }
                 if(buttonText.equals("Practice")){
                     frame.changePractice();
-                    System.out.println("Changed to Practice!");
                     repaint();
                 }
             }
