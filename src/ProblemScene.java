@@ -7,7 +7,8 @@ public class ProblemScene extends JPanel {
     IAframe frame;
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private String question;
-    private double answer;
+    private String answer;
+    private int topic;
     private JButton buttonHome = new JButton("Home");
     double width = screenSize.getWidth();
     double height = screenSize.getHeight();
@@ -31,10 +32,11 @@ public class ProblemScene extends JPanel {
     private ProblemPanel problemPanel;
     private AnswerPanel answerPanel;
 
-    public ProblemScene(IAframe frame, String question, double answer) {
+    public ProblemScene(IAframe frame, String question, String answer, int topic) {
         this.frame = frame;
         this.question = question;
         this.answer = answer;
+        this.topic = topic;
         setLayout(new BorderLayout());
         drawProblemScene();
         setSize(screenSize);
@@ -117,7 +119,7 @@ public class ProblemScene extends JPanel {
 
         private void checkAnswer() {
             String userAnswer = answerField.getText().trim();
-            boolean correct = userAnswer.equals(String.valueOf(answer));
+            boolean correct = userAnswer.equalsIgnoreCase(answer);
             parent.answerPanel.setResult(correct, String.valueOf(answer));
             parent.cardLayout.show(parent.mainPanel, "Answer");
         }
@@ -149,13 +151,23 @@ public class ProblemScene extends JPanel {
                     parent.cardLayout.show(parent.mainPanel, "Problem")
             );
 
-            // Add components with spacing
+            // Next button
+            JButton buttonNext = new JButton("Next Problem");
+            buttonNext.setFont(new Font("Arial", Font.PLAIN, 20));
+            buttonNext.setAlignmentX(Component.CENTER_ALIGNMENT);
+            buttonNext.addActionListener(e -> frame.changeProblem(topic));
+            buttonNext.addActionListener(e ->
+                    parent.cardLayout.show(parent.mainPanel, "Problem")
+            );
+
             add(Box.createVerticalGlue());
             add(results);
             add(Box.createVerticalStrut(20));
             add(correctAnswerLabel);
             add(Box.createVerticalStrut(40));
             add(buttonBack);
+            add(Box.createVerticalStrut(60));
+            add(buttonNext);
             add(Box.createVerticalGlue());
         }
 
