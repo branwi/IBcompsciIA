@@ -116,10 +116,18 @@ public class ProblemScene extends JPanel {
             add(buttonEnter);
             add(Box.createVerticalGlue());
         }
-
+        private boolean answersEqual(String userAnswer, String correctAnswer) {
+            try {
+                double userValue = Double.parseDouble(userAnswer);
+                double correctValue = Double.parseDouble(correctAnswer);
+                return Math.abs(userValue - correctValue) < 0.0001;
+            } catch (NumberFormatException e) {
+                return userAnswer.equalsIgnoreCase(correctAnswer);
+            }
+        }
         private void checkAnswer() {
-            String userAnswer = answerField.getText().trim();
-            boolean correct = userAnswer.equalsIgnoreCase(answer);
+            String userAnswer = answerField.getText().trim().replaceAll("\\s+", "");
+            boolean correct = answersEqual(userAnswer, answer);
             parent.answerPanel.setResult(correct, String.valueOf(answer));
             parent.cardLayout.show(parent.mainPanel, "Answer");
         }
@@ -155,10 +163,9 @@ public class ProblemScene extends JPanel {
             JButton buttonNext = new JButton("Next Problem");
             buttonNext.setFont(new Font("Arial", Font.PLAIN, 20));
             buttonNext.setAlignmentX(Component.CENTER_ALIGNMENT);
-            buttonNext.addActionListener(e -> frame.changeProblem(topic));
-            buttonNext.addActionListener(e ->
-                    parent.cardLayout.show(parent.mainPanel, "Problem")
-            );
+            buttonNext.addActionListener(e -> {
+                frame.changeProblem(topic);
+            });
 
             add(Box.createVerticalGlue());
             add(results);

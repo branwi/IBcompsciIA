@@ -21,8 +21,6 @@ public class IAframe extends JFrame {
 
         setSize(screenSize);
         add(homepage);
-        setSize(screenSize);
-        add(homepage);
     }
     public void changeTest(){
         remove(homepage);
@@ -39,6 +37,9 @@ public class IAframe extends JFrame {
         repaint();
     }
     public void changeProblem(int topic) {
+        if (problemScene != null) {
+            remove(problemScene);
+        }
         MathProblem randomProblem = problemDatabase.getRandomProblem(topic);
         if (randomProblem != null) {
             problemScene = new ProblemScene(this, randomProblem.getQuestion(), randomProblem.getAnswer(), topic);
@@ -50,6 +51,7 @@ public class IAframe extends JFrame {
             repaint();
         } else {
             JOptionPane.showMessageDialog(this, "No problems available for this topic", "Error", JOptionPane.ERROR_MESSAGE);
+            changeHome(); // Fall back to home if no problems available
         }
     }
 

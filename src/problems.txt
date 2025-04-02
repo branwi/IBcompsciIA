@@ -1,7 +1,119 @@
+# Topic 1: System of Equations
 1|Solve for x and y: {2x + y = 5; 3x - y = 5}. Express your answer as (x,y)|(2,1)
-1|Solve for x and y: {x + 2y = 8; 3x - y = 1}. Express your answer as (x,y)|(2,3)
-2|log₅(25)|2.0
+1|Solve for x and y: {x + 2y = 8; 2x - y = 1}. Express your answer as (x,y)|(2,3)
+1|Solve for x and y: {3x + y = 10; x - y = 2}. Express your answer as (x,y)|(3,1)
+1|Solve for x and y: {4x + 3y = 10; 2x - y = 0}. Express your answer as (x,y)|(1,2)
+1|Solve for x and y: {x + y = 7; x - y = 3}. Express your answer as (x,y)|(5,2)
+1|Solve for x and y: {5x + 2y = 16; 3x - y = 7}. Express your answer as (x,y)|(2,-1)
+1|Solve for x and y: {2x + 5y = 16; 3x - 2y = 5}. Express your answer as (x,y)|(3,2)
+1|Solve for x and y: {x + 4y = 14; 3x - y = 7}. Express your answer as (x,y)|(2,3)
+1|Solve for x and y: {6x + y = 15; 4x - y = 5}. Express your answer as (x,y)|(2,3)
+1|Solve for x and y: {3x + 2y = 8; 5x - 3y = 7}. Express your answer as (x,y)|(2,1)
+
+# Topic 2: Logarithms
+2|log_5(25)|2.0
 2|ln(e³)|3.0
+2|log_2(8)|3.0
+2|log_10(1000)|3.0
+2|log_3(81)|4.0
+2|ln(e⁵)|5.0
+2|log_4(64)|3.0
+2|log_7(49)|2.0
+2|log_6(36)|2.0
+2|log_9(81)|2.0
+
+# Topic 3: Polynomials
 3|Factor: x² - 4|(x-2)(x+2)
+3|Factor: x² - 9|(x-3)(x+3)
+3|Factor: x² - 16|(x-4)(x+4)
+3|Factor: x² + 5x + 6|(x+2)(x+3)
+3|Factor: x² - 5x + 6|(x-2)(x-3)
+3|Factor: x² + 7x + 12|(x+3)(x+4)
+3|Factor: x² - 7x + 12|(x-3)(x-4)
+3|Factor: 2x² + 7x + 3|(2x+1)(x+3)
+3|Factor: 3x² - 10x + 3|(3x-1)(x-3)
+3|Factor: x³ - 8|(x-2)(x²+2x+4)
+
+# Topic 4: Equations
 4|Solve for x: 3x + 5 = 20|5.0
+4|Solve for x: 2x - 7 = 15|11.0
+4|Solve for x: 4x + 3 = 19|4.0
+4|Solve for x: 5x - 8 = 22|6.0
+4|Solve for x: x/2 + 4 = 10|12.0
+4|Solve for x: 3(x + 2) = 21|5.0
+4|Solve for x: 2x/3 = 8|12.0
+4|Solve for x: 5 - x = 2|3.0
+4|Solve for x: 7x + 3 = 3x + 15|3.0
+4|Solve for x: 2(x - 5) = 3x + 2|-12.0
+
+# Topic 5: Trigonometry
 5|sin(π/2)|1.0
+5|cos(0)|1.0
+5|tan(π/4)|1.0
+5|sin(30°) [use degrees mode]|0.5
+5|cos(60°) [use degrees mode]|0.5
+5|tan(45°) [use degrees mode]|1.0
+5|sin²(π/6) + cos²(π/6)|1.0
+5|1 - cos²(π/3)|0.75
+5|sec(0)|1.0
+5|csc(π/2)|1.0
+
+# Topic 6: Complex Numbers
+6|(3 + 2i) + (1 + 4i)|4+6i
+6|(5 - i) - (2 + 3i)|3-4i
+6|(2 + i)(3 - i)|7+i
+6|i²|-1
+6|(1 + i)²|2i
+6|(4 + 3i)/(1 + i)|3.5-0.5i
+6|Complex conjugate of (2 - 5i)|2+5i
+6|Modulus of (3 + 4i)|5.0
+6|(1 + √3i)²|-2+2√3i
+6|e^(iπ) + 1|0.0
+
+# Topic 7: Rational Functions
+7|Simplify: (x² - 9)/(x - 3)|x+3
+7|Simplify: (x² - 4)/(x + 2)|x-2
+7|Simplify: (2x² - 8)/(x - 2)|2x+4
+7|Simplify: (x² + 5x + 6)/(x + 2)|x+3
+7|Simplify: (3x² - 12)/(x + 2)|3x-6
+7|Vertical asymptote of f(x) = 1/(x - 5)|x=5
+7|Horizontal asymptote of f(x) = (3x²)/(x² + 1)|y=3
+7|Hole in f(x) = (x² - 4)/(x - 2) at x=?|2
+7|Domain of f(x) = 1/(x + 3)|x≠-3
+7|Simplify: (x³ - 8)/(x² + 2x + 4)|x-2
+
+# Topic 8: Vectors
+8|Magnitude of vector (3,4)|5.0
+8|Dot product of (1,2) and (3,4)|11.0
+8|(1,2) + (3,4)|(4,6)
+8|5 * (2,3)|(10,15)
+8|Unit vector in direction of (3,4)|(0.6,0.8)
+8|Angle between (1,0) and (0,1) in degrees|90.0
+8|Cross product magnitude of (1,0,0) × (0,1,0)|1.0
+8|Projection of (1,1) onto (1,0)|1.0
+8|Are (1,2) and (2,4) parallel?|yes
+8|Distance between (1,2) and (4,6)|5.0
+
+# Topic 9: Probability and Combinatorics
+9|Number of permutations of 5 items|120
+9|C(5,2)|10
+9|P(7,3)|210
+9|What is the probability of rolling a 3 on a die? Express your answer as a fraction.|1/6
+9|What is the probability of heads in coin flip? Express your answer as a fraction.|1/2
+9|Expected value of die roll|3.5
+9|Number of subsets of 3-element set|8
+9|P(A) = 0.3, P(B) = 0.4, P(A∩B) = 0.12. Independent?|yes
+9|Variance of {1,2,3,4,5}|2.0
+9|Bayes' Theorem: P(A|B) = P(B|A)P(A)/P(B)|true
+
+# Topic 10: Limits and Continuity
+10|lim(x→2) (x² - 4)/(x - 2)|4.0
+10|lim(x→∞) (3x² + 2x)/(x² - 5)|3.0
+10|lim(x→0) sin(x)/x|1.0
+10|lim(x→1) (x³ - 1)/(x - 1)|3.0
+10|lim(x→0) (1 - cos(x))/x|0.0
+10|Is f(x) = 1/x continuous at x=0?|no
+10|lim(x→π/2) tan(x)|∞
+10|lim(x→0) e^x|1.0
+10|lim(x→0) ln(1 + x)/x|1.0
+10|lim(x→0) (a^x - 1)/x|ln(a)
