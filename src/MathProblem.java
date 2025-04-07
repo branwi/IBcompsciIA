@@ -9,7 +9,6 @@ public class MathProblem {
         this.topic = topic;
     }
 
-    // Getters
     public String getQuestion() { return question; }
     public String getAnswer() { return answer; }
     public int getTopic() { return topic; }
