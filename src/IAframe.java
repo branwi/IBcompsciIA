@@ -1,37 +1,33 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
+
 public class IAframe extends JFrame {
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private HomeScene homepage = new HomeScene(this);
     private TestScene testScene = new TestScene(this);
     private PracticeScene practiceScene = new PracticeScene(this);
     private ProblemScene problemScene;
     private ProblemDatabase problemDatabase;
-    public IAframe(){
-        try {
-            problemDatabase = new ProblemDatabase();
-            System.out.println("Problem database loaded successfully");
-        } catch (Exception e) {
-            System.err.println("Failed to load problem database: " + e.getMessage());
-            // Initialize with empty database
-            problemDatabase = new ProblemDatabase(new HashMap<>());
-        }
+    private TestSession currentTest;
+    private TestResultScene resultScene;
 
+    public IAframe() throws IOException {
+        problemDatabase = new ProblemDatabase();
         setSize(screenSize);
         add(homepage);
     }
-    public void changeTest(){
-        remove(homepage);
-        remove(practiceScene);
+    public void changeTest() {
+        removeAllPanels();  // This now removes all possible panels
         add(testScene);
         revalidate();
         repaint();
     }
     public void changePractice(){
-        remove(homepage);
-        remove(testScene);
+        removeAllPanels();
         add(practiceScene);
         revalidate();
         repaint();
@@ -39,28 +35,71 @@ public class IAframe extends JFrame {
     public void changeProblem(int topic) {
         if (problemScene != null) {
             remove(problemScene);
+            problemScene = null;
         }
-        MathProblem randomProblem = problemDatabase.getRandomProblem(topic);
-        if (randomProblem != null) {
-            problemScene = new ProblemScene(this, randomProblem.getQuestion(), randomProblem.getAnswer(), topic);
+        if(currentTest != null && currentTest.hasMoreProblems()) {
+            showNextTestProblem();
+        } else {
+            MathProblem randomProblem = problemDatabase.getRandomProblem(topic);
+            problemScene = new ProblemScene(this, randomProblem.getQuestion(), randomProblem.getAnswer(), topic, false);
             remove(homepage);
             remove(practiceScene);
             remove(testScene);
             add(problemScene);
             revalidate();
             repaint();
-        } else {
-            JOptionPane.showMessageDialog(this, "No problems available for this topic", "Error", JOptionPane.ERROR_MESSAGE);
-            changeHome(); // Fall back to home if no problems available
         }
     }
-
-    public void changeHome(){
-        remove(testScene);
-        remove(practiceScene);
-        remove(problemScene);
+    public void changeHome() {
+        removeAllPanels();  // This now removes all possible panels
         add(homepage);
         revalidate();
         repaint();
+    }
+    public void startTest(ArrayList<MathProblem> problems) {
+        currentTest = new TestSession(problems);
+        showNextTestProblem();
+    }
+    public void showNextTestProblem() {
+        if (currentTest == null || !currentTest.hasMoreProblems()) {
+            showTestResults();
+            System.out.println("Test Results shown!");
+            return;
+        }
+        removeAllPanels();
+        MathProblem problem = currentTest.getNextProblem();
+        if (problem == null) {
+            showTestResults();
+            return;
+        }
+        problemScene = new ProblemScene(this, problem.getQuestion(), problem.getAnswer(), problem.getTopic(), true);
+        problemScene.setTestMode(true, currentTest);
+        add(problemScene);
+        revalidate();
+        repaint();
+    }
+
+
+    public void showTestResults() {
+        TestResults results = currentTest.getResults();
+        resultScene = new TestResultScene(this, results);
+        removeAllPanels();
+        add(resultScene);
+        revalidate();
+        repaint();
+        currentTest = null; // Clear the test session
+    }
+
+    private void removeAllPanels() {
+        remove(homepage);
+        remove(testScene);
+        remove(practiceScene);
+        if (resultScene != null ){
+            remove(resultScene);
+        }
+        if (problemScene != null) {
+            remove(problemScene);
+            problemScene = null;
+        }
     }
 }
