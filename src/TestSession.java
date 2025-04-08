@@ -19,9 +19,8 @@ public class TestSession {
         if (!hasMoreProblems()) {
             return null;
         }
-        // Get current problem BEFORE incrementing
         MathProblem problem = problems.get(currentIndex);
-        currentIndex++; // Increment after getting the problem
+        currentIndex++;
         System.out.println("Current Index: " + currentIndex);
         return problem;
     }

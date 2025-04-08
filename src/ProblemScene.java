@@ -1,12 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 
 public class ProblemScene extends JPanel {
     private IAframe frame;
-    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private String question;
     private String answer;
     private int topic;
@@ -23,8 +19,8 @@ public class ProblemScene extends JPanel {
         this.question = question;
         this.answer = answer;
         this.topic = topic;
-        this.isTestMode = isTestMode; // Set immediately
-        setLayout(new BorderLayout()); // Add this line to set BorderLayout
+        this.isTestMode = isTestMode;
+        setLayout(new BorderLayout());
         drawProblemScene();
     }
 

@@ -12,6 +12,5 @@ public class TestResults {
 
     public int getCorrect() { return correct; }
     public int getIncorrect() { return incorrect; }
-    public int getTotal() { return total; }
     public double getPercentage() { return (correct * 100.0) / total; }
 }
