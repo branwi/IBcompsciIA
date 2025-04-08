@@ -3,18 +3,19 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
 public class TestScene extends JPanel {
     private IAframe frame;
-    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private ProblemDatabase problemDatabase;
+    private JButton buttonHome = new JButton("Home");
+    private JButton buttonShort = new JButton("10 Questions");
+    private JButton buttonMedium = new JButton("20 Questions");
+    private JButton buttonLong = new JButton("30 Questions");
 
     public TestScene(IAframe frame) throws IOException {
         this.frame = frame;
         this.problemDatabase = new ProblemDatabase();
-        setLayout(null);
+        setLayout(new BorderLayout());
         drawTestScene();
-        setSize(screenSize);
     }
 
     private void testStart(int questionCount) {
@@ -31,36 +32,40 @@ public class TestScene extends JPanel {
         }
     }
 
-    private JButton buttonHome = new JButton("Home");
-    private JButton buttonShort = new JButton("10 Questions");
-    private JButton buttonMedium = new JButton("20 Questions");
-    private JButton buttonLong = new JButton("30 Questions");
-
     public void drawTestScene(){
-        removeAll();
-        double width = screenSize.getWidth();
-        double height = screenSize.getHeight();
-        buttonHome.setBounds((int) width *5 / 12, (int) height / 9, (int) width / 6,  (int) height / 9);
+        JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonHome.addActionListener(e -> frame.changeHome());
-        buttonHome.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
+        buttonHome.setFont(new Font("Arial", Font.PLAIN, 20));
+        topPanel.add(buttonHome);
+        add(topPanel, BorderLayout.NORTH);
 
+        JPanel centerPanel = new JPanel();
+        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+        centerPanel.setBorder(BorderFactory.createEmptyBorder(100, 100, 200, 100));
 
-        buttonShort.setBounds((int) width *2 / 12, (int) height * 5 / 9, (int) width / 6,  (int) height / 3);
+        JLabel instructionLabel = new JLabel("Choose a test length", SwingConstants.CENTER);
+        instructionLabel.setFont(new Font("Arial", Font.BOLD, 40));
+        instructionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        centerPanel.add(instructionLabel);
+        centerPanel.add(Box.createVerticalStrut(100));
+
+        JPanel buttonsPanel = new JPanel(new GridLayout(1, 3, 100, 20));
         buttonShort.addActionListener(e -> testStart(10));
-        buttonShort.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
+        buttonShort.setFont(new Font("Arial", Font.PLAIN, 24));
+        buttonsPanel.add(buttonShort);
 
-
-        buttonMedium.setBounds((int) width *5 / 12, (int) height * 5 / 9, (int) width / 6,  (int) height / 3);
         buttonMedium.addActionListener(e -> testStart(20));
-        buttonMedium.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
+        buttonMedium.setFont(new Font("Arial", Font.PLAIN, 24));
+        buttonsPanel.add(buttonMedium);
 
-
-        buttonLong.setBounds((int) width *8 / 12, (int) height * 5 / 9, (int) width / 6,  (int) height / 3);
         buttonLong.addActionListener(e -> testStart(30));
-        buttonLong.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
-        add(buttonHome);
-        add(buttonShort);
-        add(buttonMedium);
-        add(buttonLong);
+        buttonLong.setFont(new Font("Arial", Font.PLAIN, 24));
+        buttonsPanel.add(buttonLong);
+
+        centerPanel.add(buttonsPanel);
+        add(centerPanel, BorderLayout.CENTER);
+
+        revalidate();
+        repaint();
     }
 }

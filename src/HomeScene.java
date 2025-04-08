@@ -3,28 +3,41 @@ import java.awt.*;
 
 public class HomeScene extends JPanel {
     private IAframe frame;
-    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private JButton buttonTest = new JButton("Test");
     private JButton buttonPractice = new JButton("Practice");
+
     public HomeScene(IAframe frame){
         this.frame = frame;
-        setLayout(null);
+        setLayout(new BorderLayout());
         drawHomeScene();
-        setSize(screenSize);
     }
+
     public void drawHomeScene(){
-        removeAll();
-        double width = screenSize.getWidth();
-        double height = screenSize.getHeight();
-        buttonTest.setBounds((int) width *5 / 12, (int) height * 5 / 9, (int) width / 6,  (int) height / 9);
+        JPanel centerPanel = new JPanel();
+        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+
+        centerPanel.add(Box.createVerticalStrut(200));
+        JLabel label = new JLabel("Welcome to the Math Practice Application");
+        label.setFont(new Font("Arial", Font.BOLD, 40));
+        label.setAlignmentX(Component.CENTER_ALIGNMENT);
+        centerPanel.add(label);
+        centerPanel.add(Box.createVerticalStrut(100));
+
         buttonTest.addActionListener(e -> frame.changeTest());
-        buttonTest.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
+        buttonTest.setFont(new Font("Arial", Font.PLAIN, 30));
+        buttonTest.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        buttonPractice.setBounds((int) width *5 / 12, (int) height * 7 / 9, (int) width / 6,  (int) height / 9);
+        centerPanel.add(buttonTest);
+        centerPanel.add(Box.createVerticalStrut(100));
+
         buttonPractice.addActionListener(e -> frame.changePractice());
-        buttonPractice.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
+        buttonPractice.setFont(new Font("Arial", Font.PLAIN, 30));
+        buttonPractice.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        add(buttonTest);
-        add(buttonPractice);
+        centerPanel.add(buttonPractice);
+
+        add(centerPanel, BorderLayout.CENTER);
+        add(Box.createHorizontalStrut(50), BorderLayout.WEST);
+        add(Box.createHorizontalStrut(50), BorderLayout.EAST);
     }
 }

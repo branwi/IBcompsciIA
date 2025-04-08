@@ -2,28 +2,35 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-
 public class PracticeScene extends JPanel {
     private IAframe frame;
-    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     private JButton buttonHome = new JButton("Home");
     private ArrayList<JButton> buttonTopics = new ArrayList<>();
 
-    public PracticeScene(IAframe frame){
+    public PracticeScene(IAframe frame) {
         this.frame = frame;
-        setLayout(null);
+        setLayout(new BorderLayout());
         drawPracticeScene();
-        setSize(screenSize);
     }
-    public void drawPracticeScene(){
-        removeAll();
-        double width = screenSize.getWidth();
-        double height = screenSize.getHeight();
-        buttonHome.setBounds((int) width *5 / 12, (int) height / 9, (int) width / 6,  (int) height / 9);
-        buttonHome.addActionListener(e -> frame.changeHome());
-        buttonHome.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
 
-        add(buttonHome);
+    public void drawPracticeScene() {
+        JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        buttonHome.addActionListener(e -> frame.changeHome());
+        buttonHome.setFont(new Font("Arial", Font.PLAIN, 20));
+        topPanel.add(buttonHome);
+        add(topPanel, BorderLayout.NORTH);
+
+        JPanel centerPanel = new JPanel();
+        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+        centerPanel.setBorder(BorderFactory.createEmptyBorder(100, 20, 50, 20));
+
+        JLabel instructionLabel = new JLabel("Choose a practice topic", SwingConstants.CENTER);
+        instructionLabel.setFont(new Font("Arial", Font.BOLD, 40));
+        instructionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        centerPanel.add(instructionLabel);
+        centerPanel.add(Box.createVerticalStrut(100));
+
+        JPanel topicsPanel = new JPanel(new GridLayout(2, 5, 50, 50));
 
         buttonTopics.add(new JButton("<html>System of<br>Equations</html>"));
         buttonTopics.add(new JButton("Logarithms"));
@@ -36,22 +43,18 @@ public class PracticeScene extends JPanel {
         buttonTopics.add(new JButton("<html>Probability and<br>Combinatorics</html>"));
         buttonTopics.add(new JButton("<html>Limits and<br>Continuity</html>"));
 
-        for(int i = 0; i < 10; i++){
+        for (int i = 0; i < buttonTopics.size(); i++) {
             JButton currentButton = buttonTopics.get(i);
             int finalI = i + 1;
-
-            if(i < 5){
-                currentButton.setBounds((int) width * (1 + 4 * i) /21, (int) height *5/9, (int) width / 7, (int) height / 9);
-                currentButton.addActionListener(e -> frame.changeProblem(finalI));
-                currentButton.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
-                add(currentButton);
-            }
-            else{
-                currentButton.setBounds((int) width * (1 + 4 * (i-5)) /21, (int) height *7/9, (int) width / 7, (int) height / 9);
-                currentButton.addActionListener(e -> frame.changeProblem(finalI));
-                currentButton.setFont(new Font("Arial", Font.PLAIN, (int) width/65));
-                add(currentButton);
-            }
+            currentButton.addActionListener(e -> frame.changeProblem(finalI));
+            currentButton.setFont(new Font("Arial", Font.PLAIN, 20));
+            topicsPanel.add(currentButton);
         }
+
+        centerPanel.add(topicsPanel);
+        add(centerPanel, BorderLayout.CENTER);
+
+        revalidate();
+        repaint();
     }
 }

@@ -21,7 +21,7 @@ public class IAframe extends JFrame {
         add(homepage);
     }
     public void changeTest() {
-        removeAllPanels();  // This now removes all possible panels
+        removeAllPanels();
         add(testScene);
         revalidate();
         repaint();
@@ -51,7 +51,7 @@ public class IAframe extends JFrame {
         }
     }
     public void changeHome() {
-        removeAllPanels();  // This now removes all possible panels
+        removeAllPanels();
         add(homepage);
         revalidate();
         repaint();
@@ -63,7 +63,6 @@ public class IAframe extends JFrame {
     public void showNextTestProblem() {
         if (currentTest == null || !currentTest.hasMoreProblems()) {
             showTestResults();
-            System.out.println("Test Results shown!");
             return;
         }
         removeAllPanels();
@@ -87,7 +86,7 @@ public class IAframe extends JFrame {
         add(resultScene);
         revalidate();
         repaint();
-        currentTest = null; // Clear the test session
+        currentTest = null;
     }
 
     private void removeAllPanels() {
